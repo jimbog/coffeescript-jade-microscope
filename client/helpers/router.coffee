@@ -5,3 +5,7 @@ Router.configure
 
 Router.map ->
   @route 'postsList', {path: '/'}
+  @route 'postPage', {
+    path: '/posts/:_id'
+    data: -> return Posts.findOne(@params._id)
+  }
