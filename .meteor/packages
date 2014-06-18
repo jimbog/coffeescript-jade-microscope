@@ -8,3 +8,4 @@ insecure
 bootstrap
 coffeescript
 jade
+iron-router
