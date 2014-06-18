@@ -9,3 +9,4 @@ bootstrap
 coffeescript
 jade
 iron-router
+spin
