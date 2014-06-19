@@ -9,3 +9,4 @@ Router.map ->
     path: '/posts/:_id'
     data: -> return Posts.findOne(@params._id)
   }
+  @route 'postSubmit', {path: '/submit'}
