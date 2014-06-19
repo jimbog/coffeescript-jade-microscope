@@ -3,4 +3,4 @@ template(name='postItem')
         .post-content
             h3
                 a(href='{{url}}') {{title}} <span> {{domain}} </span>
-        a.discuss.btn(href="{{pathFor 'postPage'}}") Discuss
+        a(href="{{pathFor 'postPage'}}" class="discuss btn") Discuss
