@@ -1,0 +1,11 @@
+template(name='header')
+    header.navbar
+        .navbar-inner
+            a(class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse")
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a.brand(href="{{pathFor 'postsList'}}") {{pageTitle}}
+            .nav-collapse.collapse
+                ul
+                    +loginButtons
