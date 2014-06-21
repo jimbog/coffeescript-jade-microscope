@@ -1,0 +1,19 @@
+template(name='postEdit')
+    form.main
+        .control-group
+            label.control-label(for="url") URL
+            .controls
+                input(name="url" type="text" value="{{url}}" placeholder="Your URL")
+
+        .control-group
+            label.control-label(for="title") Title
+            .controls
+                input(name="title" type="text" value="{{title}}" placeholder="Your Title")
+
+        .control-group
+            .controls
+                input(type="submit" value="Submit" class="btn btn-primary submit")
+
+        .control-group
+            .controls
+                a.btn.btn-danger.delete(href="#") Delete Post

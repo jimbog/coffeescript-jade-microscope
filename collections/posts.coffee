@@ -3,7 +3,7 @@
 Meteor.methods
   post: (postAttributes) ->
     user = Meteor.user()
-    postWithSameLink = Posts.findOne url: postAttributes.url
+    postWithSameLink = Posts.findOne(url: postAttributes.url)
 
     #ensure the user is logged in
     if !user
@@ -19,20 +19,11 @@ Meteor.methods
 
     #pick out the whitelisted keys
     post = _.extend _.pick(postAttributes, 'url', 'title', 'message'),
-                    title: postAttributes.title + (if @isSimulation then '(client)' else '(server)')
+                    title: postAttributes.title
                     userId: user._id
                     author: user.username
                     submitted: new Date().getTime()
 
-    if @isSimulation
-      console.log post.title
-
-    #wait for 5 seconds
-    if (! @isSimulation)
-      Future = Npm.require('fibers/future')
-      future = new Future()
-      Meteor.setTimeout (-> future.return()), 5 * 1000
-      future.wait()
 
     postId = Posts.insert(post)
 

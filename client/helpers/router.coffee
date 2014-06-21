@@ -4,12 +4,16 @@ Router.configure
   waitOn: -> return Meteor.subscribe('posts')
 
 Router.map ->
-  @route 'postsList', {path: '/'}
-  @route 'postPage', {
+  @route 'postsList',
+    path: '/'
+  @route 'postPage',
     path: '/posts/:_id'
-    data: -> return Posts.findOne(@params._id)
-  }
-  @route 'postSubmit', {path: '/submit'}
+    data: -> Posts.findOne(@params._id)
+  @route 'postSubmit',
+    path: '/submit'
+  @route 'postEdit',
+    path: '/posts/:_id/edit'
+    data: -> Posts.findOne(@params._id)
 
 requireLogin = (pause) ->
   unless Meteor.user()
