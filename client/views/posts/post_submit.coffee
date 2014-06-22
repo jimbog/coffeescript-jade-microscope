@@ -9,6 +9,10 @@ Template.postSubmit.events
 
     Meteor.call 'post', post, (error, id) ->
       if error
-        return alert(error.reason)
+        throwError(error.reason)
+        if error.error is 302
+          Router.go 'postPage', {_id: error.details._id}
+        else
+          Router.go 'postPage', {_id: id}
 
     Router.go 'postsList'
