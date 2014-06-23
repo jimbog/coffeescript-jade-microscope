@@ -12,6 +12,7 @@ Template.postEdit.events
       if error
         console.log error.reason
         alert error.reason
+        Errors.throw(error.reason)
       else
         Router.go 'postPage',
           _id: currentPostId
