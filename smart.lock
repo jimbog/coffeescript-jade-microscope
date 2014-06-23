@@ -5,7 +5,8 @@
       "jade": {},
       "iron-router": {},
       "spin": {},
-      "accounts-ui-bootstrap-dropdown": {}
+      "accounts-ui-bootstrap-dropdown": {},
+      "errors": {}
     },
     "packages": {
       "jade": {
@@ -27,6 +28,11 @@
         "git": "https://github.com/erobit/meteor-accounts-ui-bootstrap-dropdown.git",
         "tag": "v0.8.3",
         "commit": "a7af8a52e4e74db020a69b158a8f992797b8b0b0"
+      },
+      "errors": {
+        "git": "https://github.com/tmeasday/meteor-errors.git",
+        "tag": "v0.2.1",
+        "commit": "f2af03510a9e3d9952601f5f091aa76bfbcbf224"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

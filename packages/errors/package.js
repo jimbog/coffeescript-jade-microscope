@@ -7,6 +7,11 @@ Package.on_use(function (api, where) {
 
     api.export('Errors');
     api.add_files(['errors.coffee', 'errors_list.jade', 'errors_list.coffee'], 'client');
-
-    //if (api.export)
 });
+
+Package.on_test(function(api){
+    api.use('errors', 'client');
+    api.use(['tinytest', 'test-helpers', 'coffeescript'], 'client');
+
+    api.add_files('errors_tests.coffee', 'client')
+})
