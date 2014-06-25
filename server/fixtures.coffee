@@ -23,14 +23,14 @@ if Posts.find().count() == 0
     postId: telescopeId
     userId: tom._id
     author: tom.profile.name
-    submitted: now - 5* 3600 * 1000
+    submitted: now - 5 * 3600 * 1000
     body: 'Interesting project Sacha, can I get involved?'
 
   Comments.insert
     postId: telescopeId
     userId: sacha._id
     author: sacha.profile.name
-    submitted: now - 5* 3600 * 1000
+    submitted: now - 3 * 3600 * 1000
     body: 'You sure can Tom'
 
   Posts.insert
@@ -45,4 +45,5 @@ if Posts.find().count() == 0
     userId: sacha._id
     author: sacha.profile.name
     url: "http://themeteorbook.com"
+    submitted: now - 12 * 3600 * 1000
 
