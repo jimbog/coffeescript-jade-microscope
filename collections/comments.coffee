@@ -9,7 +9,7 @@ Meteor.methods
     unless user
       throw new Meteor.Error(401, "You need to login to make comments")
     unless commentAttributes.body
-      throw new Meteor.Error(422, 'Please werite some content')
+      throw new Meteor.Error(422, 'Please write some content')
     unless post
       throw new Meteor.Error(422, 'You must comment on a post')
 
