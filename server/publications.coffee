@@ -1,5 +1,5 @@
-Meteor.publish 'posts', ->
-  return Posts.find()
+Meteor.publish 'posts', (options) ->
+  return Posts.find({}, options)
 
 Meteor.publish 'comments', (postId) ->
   return Comments.find(postId: postId)
