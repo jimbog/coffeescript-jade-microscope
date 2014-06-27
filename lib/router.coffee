@@ -2,7 +2,7 @@ Router.configure
   layoutTemplate: 'layout'
   loadingTemplate: 'loading'
   waitOn: ->
-    Meteor.subscribe('posts')
+    [Meteor.subscribe('posts'), Meteor.subscribe('notifications')]
 
 Router.map ->
   @route 'postsList',
