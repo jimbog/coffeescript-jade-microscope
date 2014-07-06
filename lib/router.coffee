@@ -15,8 +15,16 @@ PostsListController = RouteController.extend
     return {sort: {submitted: -1}, limit: @limit()}
   waitOn: ->
     Meteor.subscribe 'posts', @findOptions()
+  posts: ->
+    Posts.find({}, @findOptions())
   data: ->
-    {posts: Posts.find({}, @findOptions())}
+    hasMore = @posts().count() == @limit()
+    nextPath = @route.path
+      postsLimit: @limit() + @increment
+    return {
+      posts: @posts()
+      nextPath: if hasMore then nextPath else null
+    }
 
 # routes
 Router.map ->
