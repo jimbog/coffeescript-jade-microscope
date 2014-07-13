@@ -4,7 +4,7 @@ template(name='postItem')
         .post-content
             h3
                 a(href='{{url}}') {{title}} <span> {{domain}} </span>
-            p {{votes}} Votes, submitted by {{author}}
+            p {{pluralize votes "Vote"}}, submitted by {{author}}
                 a(href="{{pathFor 'postPage'}}") {{commentsCount}} comments
                 if ownPost
                     a(href="{{pathFor 'postEdit'}}") Edit
