@@ -1,9 +1,10 @@
 template(name='postItem')
     .post
+        a.upvote.btn(href="#") ⬆
         .post-content
             h3
                 a(href='{{url}}') {{title}} <span> {{domain}} </span>
-            p submitted by {{author}}
+            p {{votes}} Votes, submitted by {{author}}
                 a(href="{{pathFor 'postPage'}}") {{commentsCount}} comments
                 if ownPost
                     a(href="{{pathFor 'postEdit'}}") Edit
