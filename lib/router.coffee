@@ -36,16 +36,21 @@ Router.map ->
   @route 'postPage',
     path: '/posts/:_id'
     waitOn: ->
-      Meteor.subscribe 'comments', @params._id
+      return [
+        Meteor.subscribe('singlePost', @params._id)
+        Meteor.subscribe('comments', @params._id)
+        ]
     data: -> Posts.findOne(@params._id)
 
   @route 'postSubmit',
     path: '/submit'
-    disableProgress: True
 
   @route 'postEdit',
     path: '/posts/:_id/edit'
-    data: -> Posts.findOne(@params._id)
+    waitOn: ->
+      Meteor.subscribe('singlePost', @params._id)
+    data: ->
+      Posts.findOne(@params._id)
 
   @route 'postsList',
     path: '/:postsLimit?'
@@ -53,10 +58,13 @@ Router.map ->
 
 
 requireLogin = (pause) ->
-  unless Meteor.user()
-    @render 'accessDenied'
+  if not Meteor.user()
+    if Meteor.loggingIn()
+      @render @loadingTemplate
+    else
+      @render 'accessDenied'
     pause()
 
 Router.onBeforeAction 'loading'
-Router.onBeforeAction requireLogin, {only: 'postSubmit'}
+Router.onBeforeAction requireLogin, {only: ['postSubmit', 'postEdit']}
 Router.onBeforeAction -> Errors.clearSeen()
