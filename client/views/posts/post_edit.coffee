@@ -22,5 +22,5 @@ Template.postEdit.events
     if confirm("Delete this post?")
       currentPostId = @_id
       Posts.remove(currentPostId)
-      Router.go 'postsList'
+      Router.go 'home'
 

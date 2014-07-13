@@ -5,9 +5,13 @@ template(name='header')
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-            a.brand(href="{{pathFor 'postsList'}}") Microscope
+            a.brand(href="{{pathFor 'home'}}") Microscope
             .nav-collapse.collapse
                 ul.nav
+                    li
+                        a(href="{{pathFor 'newPosts'}}") New
+                    li
+                        a(href="{{pathFor 'bestPosts'}}") Best
                     if currentUser
                         li
                             a(href="{{pathFor 'postSubmit'}}") New
