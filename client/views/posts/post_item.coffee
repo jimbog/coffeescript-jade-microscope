@@ -5,7 +5,7 @@ Template.postItem.helpers
     a.href = @url
     return a.hostname
 
-Template.postItem.helpers
+Template.postItem.events
   'click .upvote': (e) ->
     e.preventDefault()
     Meteor.call('upvote', @_id)
